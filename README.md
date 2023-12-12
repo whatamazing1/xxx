@@ -43,3 +43,7 @@ If you want to test the existed model, try:
 python test.py
 ```
 The test result can be found in `./src/test-result.csv`
+
+# Citation
+# Contact
+yjiny@126.com
