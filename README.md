@@ -41,14 +41,16 @@ If you want to train this model, try:
 ```
 python main.py
 ```
-The train result can be found in `./src/kfold-result.csv`
-
 If you want to test the existed model, try:
 ```
 python test.py
 ```
-The test result can be found in `./src/test-result.csv`
 
-# Citation
+# Description of results
+The v1 train result can be found in `./src/kfold-result.csv`
+The v2 train result can be found in `./src-v2/kfold-result.csv`
+The test result can be found in `./src/test-result.csv`
+The v2 test result can be found in `./src-v2/test-result.csv`
+ALL the results files contain three columns, the first column is the ID of the protein, the second column is the real value of affinity, and the third column is the predicted value of this tool。
 # Contact
 yjiny@126.com
