@@ -31,10 +31,12 @@ version 2 has no active site information, the version 2 code and result can be f
 You can get the DEAttentionDTA code by:
 ```
 git clone https://github.com/whatamazing1/DEAttentionDTA
+cd DEAttentionDTA
 ```
-You can download all environments at once according to the following command
+You can create environment with GPU-enabled version according to the following command
 ```
 conda env create -f environment.yml
+conda activate pytorch
 ```
 
 # Training & Testing
