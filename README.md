@@ -27,6 +27,11 @@ You can get the DEAttentionDTA code by:
 ```
 git clone https://github.com/whatamazing1/DEAttentionDTA
 ```
+You can download all environments at once according to the following command
+```
+conda env create -f environment.yml
+```
+
 # Training & Testing
 Select a version and enter its root directory
 ```
