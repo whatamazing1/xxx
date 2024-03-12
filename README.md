@@ -52,7 +52,7 @@ If you want to test the existed model, try:
 ```
 python test.py
 ```
-
+There are five indicators RMSE, MAE, SD, CI and R included in the evaluation indicators, which will be output after running the test file. It includes the indicators from the last 10 models and each of them
 # Description of results
 The v1 train result can be found in `./src/kfold-result.csv`
 
