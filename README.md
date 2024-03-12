@@ -1,9 +1,14 @@
 # DEAttentionDTA
 DEAttentionDTA is a deep learning which based on dynamic word embeddings and a self-attention mechanism, for predicting protein-target binding affinity.
+
 The raw data can be found at [PDBbind](http://pdbbind.org.cn/) including three datasets: version 2020,core2016 and core2014.
+
 Data preprocessing can be referred to `./precode/`. The processed data is stored in `./data/`.
+
 version 1 has active site information, the version 1 code and result can be found in `./src/`, model can be found in `./src/model/`.
+
 version 2 has no active site information, the version 2 code and result can be found in `./src-v2/`, model can be found in `./src-v2/model/`.
+
 # Requirements
 - python 3.9.12
 
@@ -48,9 +53,14 @@ python test.py
 
 # Description of results
 The v1 train result can be found in `./src/kfold-result.csv`
+
 The v2 train result can be found in `./src-v2/kfold-result.csv`
+
 The test result can be found in `./src/test-result.csv`
+
 The v2 test result can be found in `./src-v2/test-result.csv`
+
 ALL the results files contain three columns, the first column is the ID of the protein, the second column is the real value of affinity, and the third column is the predicted value of this tool。
+
 # Contact
 yjiny@126.com
