@@ -80,7 +80,7 @@ rmse = RMSE(final_pre, target)
 mae = MAE(final_pre, target)
 mse = MSE(final_pre, target)
 cl = c_index(final_pre, target)
-print(f"测试集RMSE为{rmse}测试集MAE为{mae}测试集MSE为{mse}测试集CL为{cl}")
+print(f"total RMSE:{rmse}total MAE:{mae}total MSE:{mse}total CL:{cl}")
 df = pd.DataFrame({"id_name":id, 'true affinity': target, 'predict affinity': final_pre})
 df.to_csv("kfold_result.csv", index = False)
 
@@ -102,6 +102,6 @@ for i in range(10):
     mae = MAE(pre, target)
     mse = MSE(pre, target)
     cl = c_index(pre, target)
-    print(f"Fold {i+1} 测试集RMSE为" + str(rmse)+"测试集MAE为" + str(mae)+"测试集MSE为" + str(mse) + "测试集CL为" + str(cl))
+    print(f"Fold {i+1} RMSE:" + str(rmse)+"MAE:" + str(mae)+"MSE:" + str(mse) + "CL:" + str(cl))
 
 
