@@ -17,6 +17,16 @@ def MAE(y_true, y_pred):
     return m.mean_absolute_error(y_true, y_pred)
 def MSE(y_true, y_pred):
     return m.mean_squared_error(y_true, y_pred)
+from scipy.stats import pearsonr
+def CORR(y_true, y_pred):
+    return pearsonr(y_true, y_pred)[0]
+
+from sklearn.linear_model import LinearRegression
+def SD(y_true, y_pred):
+    lr = LinearRegression().fit(np.array(y_pred).reshape(-1, 1), y_true)
+    y_ = lr.predict(np.array(y_pred).reshape(-1, 1))
+    return np.sqrt(np.square(y_true - y_).sum() / (len(y_pred) - 1))
+
 
 
 @njit
@@ -78,9 +88,10 @@ for i in range(10):
 
 rmse = RMSE(final_pre, target)
 mae = MAE(final_pre, target)
-mse = MSE(final_pre, target)
+sd = SD(final_pre, target)
+r = CORR(final_pre, target)
 cl = c_index(final_pre, target)
-print(f"total RMSE:{rmse}total MAE:{mae}total MSE:{mse}total CL:{cl}")
+print(f"total RMSE:{rmse}total MAE:{mae}total SD:{sd}total R:{r}total CL:{cl}")
 df = pd.DataFrame({"id_name":id, 'true affinity': target, 'predict affinity': final_pre})
 df.to_csv("kfold_result.csv", index = False)
 
@@ -98,10 +109,11 @@ for i in range(10):
         pre.extend(final_output.cpu().numpy().reshape(-1))
         target.extend(affinity.cpu().numpy().reshape(-1))
 
-    rmse = RMSE(pre, target)
-    mae = MAE(pre, target)
-    mse = MSE(pre, target)
-    cl = c_index(pre, target)
-    print(f"Fold {i+1} RMSE:" + str(rmse)+"MAE:" + str(mae)+"MSE:" + str(mse) + "CL:" + str(cl))
+    rmse = RMSE(final_pre, target)
+    mae = MAE(final_pre, target)
+    sd = SD(final_pre, target)
+    r = CORR(final_pre, target)
+    cl = c_index(final_pre, target)
+    print(f"Fold {i+1} RMSE:" + str(rmse)+"MAE:" + str(mae)+"SD:" + str(sd) + "R:"+ str(r) + "CL:" + str(cl))
 
 
