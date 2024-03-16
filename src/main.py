@@ -59,7 +59,7 @@ for fold, (train_index, val_index) in enumerate(kf.split(train_dataset)):
     model = MyModule().to(device)
 
     # use the corresponding data loader during training and validation
-    optimizer = optim.Adam(model.parameters(), lr=0.0001)
+    optimizer = optim.AdamW(model.parameters(), lr=0.0001)
     criterion = nn.MSELoss()
 
     best_rmse = 10000
